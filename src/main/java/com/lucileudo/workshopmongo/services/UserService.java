@@ -1,26 +1,28 @@
 package com.lucileudo.workshopmongo.services;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
+
 import com.lucileudo.workshopmongo.domain.User;
 import com.lucileudo.workshopmongo.repository.UserRepository;
+import com.lucileudo.workshopmongo.services.excepton.ObjectNotFoundException;
 
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository repo;
+	@Autowired
+	private UserRepository repo;
 
-    @Autowired
-    private MongoTemplate mongoTemplate;
+	public List<User> findAll() {
 
-    public List<User> findAll() {
-        List<User> list1 = repo.findAll();
-        List<User> list2 = mongoTemplate.findAll(User.class);
-        System.out.println("### VIA REPOSITORY: " + list1.size());
-        System.out.println("### VIA MONGOTEMPLATE: " + list2.size());
-        return list2;
-    }
+		return repo.findAll();
+	}
+
+	public User findById(String id) {
+		Optional<User> obj = repo.findById(id);
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+	}
 }
