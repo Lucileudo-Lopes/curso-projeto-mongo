@@ -2,10 +2,6 @@
 
 API REST para gerenciamento de um blog, com posts, usuários, comentários e busca textual. Desenvolvida em Java com Spring Boot e MongoDB, containerizada com Docker e publicada em produção.
 
-[![Java](https://img.shields.io/badge/Java-17-orange)](https://www.oracle.com/java/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen)](https://spring.io/projects/spring-boot)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green)](https://www.mongodb.com/atlas)
-[![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://www.docker.com/)
 
 ---
 
